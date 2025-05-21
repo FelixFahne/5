@@ -6,18 +6,26 @@ from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import precision_recall_curve
 from sklearn.metrics import average_precision_score
 
-# Define your Excel file paths
+# Define your Excel file paths relative to this script so that the
+# code can run regardless of the working directory. The files are
+# expected to be placed in the same directory as this script or in a
+# subdirectory named ``data``.
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data"
+
 excel_files = [
-    '/Users/gaowei/Downloads_annotations(1).xlsx',
-    '/Users/gaowei/Downloads_annotations(2).xlsx',
-    '/Users/gaowei/Downloads_annotations.xlsx'
+    DATA_DIR / "annotations(1).xlsx",
+    DATA_DIR / "annotations(2).xlsx",
+    DATA_DIR / "annotations.xlsx",
 ]
 
 # Define corresponding CSV file paths
 csv_files = [
-    '/Users/gaowei/Downloads_annotations(1).csv',
-    '/Users/gaowei/Downloads_annotations(2).csv',
-    '/Users/gaowei/Downloads_annotations.csv'
+    DATA_DIR / "annotations(1).csv",
+    DATA_DIR / "annotations(2).csv",
+    DATA_DIR / "annotations.csv",
 ]
 
 # Loop through each Excel file, read it, and save it as a CSV file
